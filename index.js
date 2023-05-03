@@ -26,7 +26,7 @@ var validators = [
 
 // Listening for postMessage event from the iframe and displaying the result on the screen
 window.addEventListener("message", function(event) {
-    if (event.source !== parent && event.origin !== "http://127.0.0.1:5500") return;
+    if (event.source !== parent && event.origin !== "https://netomi-form-assignment.vercel.app/") return;
     if (typeof event.data === "string") {
         var response = JSON.parse(event.data)
         if("Success" in response) document.getElementById("myFrame").style.borderColor = "green";
