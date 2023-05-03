@@ -49,22 +49,17 @@ fetch("https://countriesnow.space/api/v0.1/countries/states")
 
     // Validating each value using the validators from the main window
     const validators = parent.validators || []
-
     //Storing errors
     const errors = {};
 
-    console.log(validators);
     if(Array.isArray(validators)) {
         validators.forEach((validator) => {
-            console.log(validator);
             const field = validator.field;
             const value = field === "name" ? name :
                           field === "email" ? email :
                           field === "phone" ? contact :
                           field === "country" ? country :
                           field === "state" ? state : null;
-    
-            console.log(field+" "+value);
             if (value !== null) {
                 validator.validator.forEach((rule) => {
                     if(rule.required && !value.trim()) errors[field] = { error: "Please fill this field, it is required." };
@@ -84,12 +79,6 @@ fetch("https://countriesnow.space/api/v0.1/countries/states")
             }
           });
     }
-    
-    // if(name.length<4||name.length>10) errors["name"] = { error: "Length should be in between 4-10 characters" };
-    // if(!checkValidity(email)) errors["email"] = { error: "Please enter a valid email address" };
-    // if(contact.length !== 10) errors["contact number"] = { error: "Mobile number should be of 10 digits" };
-    // if(country === "") errors["country"] = { error: "Please select a country" };
-    // if(state === "") errors["state"] = { error: "Please select a state" };
 
     if(Object.keys(errors).length === 0) {
         const result = { Success: "All fields are valid." };

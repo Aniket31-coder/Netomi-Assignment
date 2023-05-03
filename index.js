@@ -4,7 +4,8 @@ var validators = [
         "validator": [
             { "required": true }, 
             { "minlengthname": 4 }, 
-            {"maxlengthname": 10 }]
+            {"maxlengthname": 10 } 
+        ]
       },
       {
         "field": "email",
